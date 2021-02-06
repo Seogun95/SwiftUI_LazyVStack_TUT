@@ -16,8 +16,9 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding(.vertical, 50)
             
-            ScrollView {
-                LazyVStack(alignment: .center) {
+                     //.horizontal로 수정
+            ScrollView(.horizontal) {
+                LazyHStack {
                     ForEach(1...100, id: \.self) { i in
                         //VStack으로 도형 추가
                         VStack {
@@ -29,8 +30,10 @@ struct ContentView: View {
                                 .padding(.all, 10)
                         }
                     }
+                    .padding(.all, 8)
                 }
-            }
+                //스크롤의 프레임 설정
+            } .frame(height: 100)
         }
     }
 }
